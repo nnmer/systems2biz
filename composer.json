@@ -28,6 +28,7 @@
         "symfony/polyfill-apcu": "^1.0",
         "symfony/swiftmailer-bundle": "^2.6.4",
         "symfony/symfony": "3.4.*",
+        "twbs/bootstrap": "^4.0",
         "twig/twig": "^1.0||^2.0"
     },
     "require-dev": {
@@ -46,10 +47,13 @@
         ],
         "post-install-cmd": [
             "@symfony-scripts",
-            "bash bin/setup_git_pre_hook.sh"
+            "bash bin/setup_git_pre_hook.sh",
+            "bash bin/assets-copy.sh"
         ],
         "post-update-cmd": [
-            "@symfony-scripts"
+            "@symfony-scripts",
+            "bash bin/setup_git_pre_hook.sh",
+            "bash bin/assets-copy.sh"
         ]
     },
     "config": {

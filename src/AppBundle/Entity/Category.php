@@ -31,7 +31,7 @@ class Category
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Product", inversedBy="categories")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Product", mappedBy="categories")
      */
     private $products;
 
@@ -43,6 +43,11 @@ class Category
     public function __construct()
     {
         $this->products = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->getName() ?: '';
     }
 
     /**

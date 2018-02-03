@@ -31,7 +31,7 @@ class Product
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Category", mappedBy="products")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Category", inversedBy="products")
      * @ORM\JoinTable(name="category_vs_product",
      *      joinColumns={@ORM\JoinColumn(name="product_id", referencedColumnName="id", onDelete="CASCADE")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="category_id", referencedColumnName="id", onDelete="CASCADE")}
@@ -59,6 +59,11 @@ class Product
         $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
         $this->price = 0;
         $this->quantity = 0;
+    }
+
+    public function __toString()
+    {
+        return $this->getName() ?: '';
     }
 
     /**

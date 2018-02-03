@@ -1,0 +1,18 @@
+default:
+  suites:
+    pages:
+      paths:
+        - %paths.base%/tests/behat/features/pages
+      contexts:
+        - BehatTests\Context\PageContext
+        - BehatTests\Context\UserAuthenticationContext
+
+  extensions:
+    Behat\Symfony2Extension:
+      kernel:
+        env: behat
+    Behat\MinkExtension:
+      base_url: http://sys2.lo
+      sessions:
+        default:
+          symfony2: ~

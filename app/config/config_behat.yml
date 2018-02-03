@@ -1,0 +1,27 @@
+imports:
+    - { resource: config_dev.yml }
+
+framework:
+  test: ~
+
+doctrine:
+  dbal:
+    default_connection: default
+    connections:
+      default:
+        driver: pdo_sqlite
+        path: '%kernel.cache_dir%/__DBNAME__.db'
+    types:
+      time: Doctrine\DBAL\Types\VarDateTimeType
+  orm:
+    dql:
+      datetime_functions:
+        time: Doctrine\DBAL\Types\VarDateTimeType
+
+web_profiler:
+  toolbar: false
+
+security:
+  firewalls:
+    main:
+      http_basic: ~

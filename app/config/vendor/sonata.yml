@@ -3,3 +3,8 @@ sonata_block:
     blocks:
         sonata.admin.block.admin_list:
             contexts: [admin]
+
+sonata_user:
+    class:
+        user: AppBundle\Entity\User
+        group: AppBundle\Entity\Group

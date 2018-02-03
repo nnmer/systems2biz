@@ -14,7 +14,7 @@ class AppFixtures extends Fixture
         $categories = [];
         for ($i = 0; $i < 20; $i++) {
             $category = new Category();
-            $category->setName('category- '.$i);
+            $category->setName('category-'.$i);
             $manager->persist($category);
 
             $categories[$i] = $category;
@@ -24,7 +24,7 @@ class AppFixtures extends Fixture
         for ($i = 0; $i < 120; $i++) {
             $product = new Product();
             $product
-                ->setName('product- '.$i)
+                ->setName('product-'.$i)
                 ->setPrice(rand(1, 100))
                 ->setQuantity(rand(0, 20))
                 ->setSku('sku-'.$i)

@@ -7,7 +7,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\EntityRepository\CategoryRepository")
  * @ORM\Table(name="category")
  */
 class Category
@@ -20,7 +20,7 @@ class Category
     private $id;
 
     /**
-     * @Gedmo\Slug(fields={"name","createdAt"})
+     * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(length=128, unique=true)
      */
     private $slug;

@@ -20,7 +20,12 @@ class Product
     private $id;
 
     /**
-     * @Gedmo\Slug(fields={"name","createdAt"})
+     * @ORM\Column(type="string", length=75, unique=true)
+     */
+    private $sku;
+
+    /**
+     * @Gedmo\Slug(fields={"name","sku"})
      * @ORM\Column(type="string", length=128, unique=true)
      */
     private $slug;
@@ -206,5 +211,29 @@ class Product
     public function getQuantity()
     {
         return $this->quantity;
+    }
+
+    /**
+     * Set sku
+     *
+     * @param string $sku
+     *
+     * @return Product
+     */
+    public function setSku($sku)
+    {
+        $this->sku = $sku;
+
+        return $this;
+    }
+
+    /**
+     * Get sku
+     *
+     * @return string
+     */
+    public function getSku()
+    {
+        return $this->sku;
     }
 }

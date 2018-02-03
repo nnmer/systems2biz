@@ -4,11 +4,8 @@
 {% block pageHeaderTitle %} Categories {% endblock %}
 
 {% block body %}
-    <ul class="list-group">
-        {% for item in pagination.currentPageResults %}
-            <li class="list-group-item"><a href="{{ path('category_products', {slug: item.slug }) }}">{{ item.name }}</a></li>
-        {% endfor %}
-    </ul>
+    {% set items = pagination.currentPageResults %}
+    {% include '@App/Category/partials/_list_block.html.twig' %}
     <br>
     {{ pagerfanta(pagination, 'twitter_bootstrap4') }}
 {% endblock %}

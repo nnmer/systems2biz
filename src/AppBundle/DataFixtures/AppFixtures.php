@@ -17,7 +17,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $categories = [];
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 13; $i++) {
             $category = new Category();
             $category->setName('category-'.$i);
             $manager->persist($category);
@@ -35,7 +35,7 @@ class AppFixtures extends Fixture
                 ->setSku('sku-'.$i)
             ;
 
-            for ($j = 0; $j < rand(0, 20); $j++) {
+            for ($j = 0; $j < rand(0, 13); $j++) {
                 $product->addCategory($categories[$j]);
             }
 

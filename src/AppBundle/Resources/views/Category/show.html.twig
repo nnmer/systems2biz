@@ -1,26 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block title %} Products at `{{ object | default('') }}` {% endblock %}
-{% block pageHeaderTitle %} Products at `{{ object | default('') }}` {% endblock %}
 
 {% block body %}
-    {% if pagination.currentPageResults | length == 0 %}
-        <i>No products available</i>
-    {% else %}
-        <table class="table">
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-            </tr>
-            {% for item in pagination.currentPageResults %}
-                <tr>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.price}}</td>
-                    <td>{{ item.quantity }}</td>
-                </tr>
-            {% endfor %}
-        </table>
-        {{ pagerfanta(pagination, 'twitter_bootstrap4') }}
-    {% endif %}
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Categories</h3>
+            {% include '@App/Category/partials/_list_block.html.twig' with {items: categories} %}
+        </div>
+        <div class="col-md-8">
+            <h3>Products at `{{ object | default('') }}`</h3>
+            {% include '@App/Product/partials/_table_list.html.twig' with {pagination: productsPager} %}
+        </div>
+    </div>
 {% endblock %}

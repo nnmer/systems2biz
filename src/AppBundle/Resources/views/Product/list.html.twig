@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Products {% endblock %}
+{% block pageHeaderTitle %} Products {% endblock %}
+
+{% block body %}
+    {% include '@App/Product/partials/_table_list.html.twig' %}
+{% endblock %}

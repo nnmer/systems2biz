@@ -154,4 +154,52 @@ class Product
     {
         return $this->categories;
     }
+
+    /**
+     * Set price
+     *
+     * @param float $price
+     *
+     * @return Product
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set quantity
+     *
+     * @param integer $quantity
+     *
+     * @return Product
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Get quantity
+     *
+     * @return integer
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
 }

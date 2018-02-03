@@ -1,0 +1,14 @@
+services:
+    admin.category:
+        class: AppBundle\Admin\CategoryAdmin
+        arguments: [~, AppBundle\Entity\Category, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Categories, on_top: true, group: Categories, icon: '<i class="fa fa-book"></i>' }
+        public: true
+
+    admin.product:
+        class: AppBundle\Admin\ProductAdmin
+        arguments: [~, AppBundle\Entity\Product, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Products, on_top: true, group: Products, icon: '<i class="fa fa-list"></i>' }
+        public: true

@@ -4,7 +4,9 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
+// @codingStandardsIgnoreStart
 class AppKernel extends Kernel
+// @codingStandardsIgnoreEnd
 {
     public function registerBundles()
     {
@@ -21,6 +23,7 @@ class AppKernel extends Kernel
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
 
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
 

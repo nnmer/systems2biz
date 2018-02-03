@@ -9,6 +9,11 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 class AppFixtures extends Fixture
 {
+    private function randomFloat($min, $max)
+    {
+        return ($min+lcg_value()*(abs($max-$min)));
+    }
+
     public function load(ObjectManager $manager)
     {
         $categories = [];
@@ -25,7 +30,7 @@ class AppFixtures extends Fixture
             $product = new Product();
             $product
                 ->setName('product-'.$i)
-                ->setPrice(rand(1, 100))
+                ->setPrice(round($this->randomFloat(1.01, 100.99), 2))
                 ->setQuantity(rand(0, 20))
                 ->setSku('sku-'.$i)
             ;
